@@ -1,18 +1,15 @@
-const eqArrays = require('./eqArrays');
-const assertArraysEqual = require('./assertArraysEqual');
+const assert = require('chai').assert;
+const middle = require('../middle');
 
+describe("#middle", () => {
 
-  const middle = function(array) {
-let newArr = [];
-  if (array.length <= 2 && array.length > 0){
-    //   console.log("The array has only 1 or 2 elements") 
-  } else if (array.length % 2 === 0){
-      newArr =[array[(array.length/2)-1],array[array.length/2]]
-    //   console.log("The array has an even number of elements"); 
-  } else if (array.length % 2 !== 0){
-      newArr = [array[Math.floor(array.length/2)]]
-    //   console.log("The array has an odd number of elements")
-  }
-  return newArr;  
-}
-module.exports = middle;
+  it("returns 3 for ([1, 2, 3, 4, 5])", () => {
+
+    assert.equal(middle([1, 2, 3, 4, 5]),3);
+  });
+
+  it("returns [3,4] for ([1, 2, 3, 4, 5, 6])", () => {
+
+    assert.equal(middle([1, 2, 3, 4, 5, 6]),[3,4]);
+  });
+
